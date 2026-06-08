@@ -195,8 +195,8 @@ body {
 /*  Ürünlerin dizileceği ızgara (Grid) yapısı. Sağa yatmayı engelleyen ana yer! */
 .product-grid {
     display: grid;
-    justify-content: center; /* TR: Grid'i konteynerın içinde ortalar */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* TR: Kartları ekrana simetrik dağıtır */
+    justify-content: center; /*  Grid'i konteynerın içinde ortalar */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /*  Kartları ekrana simetrik dağıtır */
     gap: 30px;
     width: 100%;
 }
@@ -291,7 +291,7 @@ footer {
 }
 /* SEPET MODAL ARKA PLANI */
 .cart-modal {
-    display: none; /* Başlangıçta gizli */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -304,7 +304,7 @@ footer {
 
 /* SEPET İÇERİK KUTUSU */
 .cart-modal-content {
-    background-color: #1a1a1a; /* Senin sitenin koyu temasına uygun */
+    background-color: #1a1a1a; 
     color: #fff;
     width: 400px;
     height: 100%;
@@ -399,4 +399,157 @@ footer {
 
 .cart-item-remove:hover {
     transform: scale(1.2); /* Üzerine gelince hafif büyüsün */
+}
+
+/* RANDEVU BÖLÜMÜ COMFY & DARK TEMASI */
+
+.booking-container {
+    padding: 80px 20px;
+    max-width: 700px; /* Formu çok yayılmasın diye daralttık */
+    margin: 0 auto;
+    color: #fff;
+    background-color: #0d0d0d; /* Tam arka plan rengi */
+}
+
+.booking-container .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.booking-wrapper {
+    background-color: #161616; /* Kartın koyu arka planı */
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #262626; /* Hafif belirginlik katacak çizgi */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Elemanların arasını açar */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input ve Select Alanlarının Değişimi */
+.form-group input, 
+.form-group select {
+    background-color: #222222 !important;
+    border: 1px solid #333333 !important;
+    color: #ffffff !important;
+    padding: 14px 16px !important;
+    border-radius: 8px !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Üzerine gelince veya tıklayınca altın/kahve tonu parlaması */
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #be9063 !important;
+    box-shadow: 0 0 8px rgba(190, 144, 99, 0.2);
+}
+
+/* Tarih seçme alanındaki takvim ikonunu beyaz yapma dokunuşu */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Yan yana duran Tarih ve Saat alanları */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Gönder Butonunun Jilet Gibi Yapılması */
+.submit-booking-btn {
+    background-color: #be9063 !important; /* Premium kahve tonu */
+    color: #111 !important;
+    border: none !important;
+    padding: 16px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.submit-booking-btn:hover {
+    background-color: #a3764c !important;
+    transform: translateY(-2px);
+}
+
+/* Mobil Ekran Uyumluluğu */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* RANDEVU POPUP MODAL */
+
+.booking-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.booking-modal-content {
+    background: #161616;
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #262626;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #be9063;
 }

@@ -5,96 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio & Cafe | Konsept Mağaza & Fotoğraf Stüdyosu</title>
     
-    <!-- 
-      TR: Sitenin modern durması için Google Fonts'tan 'Poppins' fontunu çektik.
-      EN: Google Fonts integration for modern and premium typography.
-    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- TR: Ana stil dosyamız olan style.css'i bağlıyoruz / EN: External CSS link -->
     <link rel="stylesheet" href="css/style.css">
-    
+    <!-- fancy box kullaniyoruz-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+</head>
 <body>
 
-    <!-- 
-         TR: NAVBAR - Sitenin en üstündeki menü ve logo alanı 
-         EN: GLOBAL NAVIGATION HEADER
-         -->
     <header>
         <nav class="navbar">
-            <!-- TR: Logo alanı. '&' işaretini kahve tonu yapmak için span içine aldık -->
             <div class="logo">
                 <a href="index.html">☕ Studio<span>&</span>Cafe</a>
             </div>
             
-    
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Ana Sayfa</a></li>
                 <li><a href="#shop-section">Menü & Mağaza</a></li>
-                <li><a href="#booking-section">Fotoğrafçılık & Randevu</a></li>
-                <!-- TR: Sepet butonu. İçindeki sıfır (0) sayısı JavaScript ile dinamik değişecek -->
+               <li><a href="#" id="nav-booking-btn">Fotoğrafçılık & Randevu</a></li>
                 <li><a href="#" class="cart-btn">Sepet (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 
-         TR: ANA İÇERİK ALANI / EN: MAIN CONTENT INTERFACE
-         -->
     <main>
         
-        <!-- 
-          TR: HERO - Kullanıcıyı karşılayan büyük fotoğraflı giriş alanı (Türkçe İçerik).
-          EN: HERO MODULE - Above-the-fold landing zone with localized content.
-        -->
         <section class="hero">
             <div class="hero-content">
                 <h1>Sakarya'nın İlk Fotoğraf Konseptli Kafesi</h1>
                 <p>Taze kavrulmuş nitelikli kahve kokusu eşliğinde profesyonel fotoğrafçılık deneyimi. Mağazamızı keşfedin, menümüze göz atın veya hemen çekim randevunuzu alın.</p>
-                <!-- TR: Kullanıcıyı mağazaya veya randevuya yönlendiren butonlar -->
                 <div class="hero-buttons">
                     <a href="#shop-section" class="btn btn-primary">Menüyü İncele</a>
-                    <a href="#booking-section" class="btn btn-secondary">Randevu Oluştur</a>
+                    <a href="#" id="hero-booking-btn" class="btn btn-secondary"> Randevu Oluştur</a>
                 </div>
             </div>
         </section>
 
-        <!-- 
-          TR: FEATURES - İşletmenin sunduğu 3 temel hizmeti gösteren yan yana kutular.
-          EN: FEATURES BLOCK - 3-column layout showcasing business pillars.
-        -->
         <section class="features">
-            <!-- TR: Kutucuk 1 - Fotoğraf Stüdyosu -->
             <div class="feature-card">
                 <h3>📸 Profesyonel Stüdyo</h3>
                 <p>Biyometrik ve portre çekimlerinden, kurumsal fabrika ve ürün çekimlerine kadar geniş hizmet ağı.</p>
             </div>
             
-            <!-- TR: Kutucuk 2 - Kafe Menüsü -->
             <div class="feature-card">
                 <h3>☕ Nitelikli Kahveler</h3>
                 <p>Dünyanın dört bir yanından özenle seçilmiş tek kökenli çekirdekler ve el yapımı özel tatlılar.</p>
             </div>
             
-            <!-- TR: Kutucuk 3 - E-Ticaret/Mağaza -->
             <div class="feature-card">
                 <h3>👕 Özel Tasarım Ürünler</h3>
-                <p>Kafemize özel üretilen dekoratif objeler, markalı tişörtler ve limitli üretim sweatshirt tasarımları.</p>
+                <p>Kafemize özel üretilen dekoratif objeler, markalı tişörtler and limitli üretim sweatshirt tasarımları.</p>
             </div>
         </section>
 
-        <!-- 
-          TR: SHOP - JavaScript'in çalışacağı dinamik ürün listeleme ve filtreleme alanı.
-          EN: DYNAMIC CATALOG & INTERACTIVE FILTERS
-        -->
         <section id="shop-section" class="shop-container">
             <h2 class="section-title">Menü & Mağazayı Keşfedin</h2>
-            
-            <!-- TR: JavaScript'in (app.js) okuyup filtreleme yapacağı Türkçe butonlar -->
+            <!-- butonlari filtreleme kismi-->
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Tüm Ürünler</button>
                 <button class="filter-btn" data-filter="coffee">Kahveler</button>
@@ -102,48 +71,90 @@
                 <button class="filter-btn" data-filter="hot drinks">Sıcak İçecekler</button>
                 <button class="filter-btn" data-filter="cold drinks">Soğuk İçecekler</button>
                 <button class="filter-btn" data-filter="merch">Giyim & Aksesuar</button>
-                
             </div>
-            <!-- 
-              TR: Buranın içi bomboş kalıyor çünkü JavaScript (app.js) ürün kartlarını 
-              kodla otomatik olarak buranın içine enjekte edecek.
-              EN: Target Node for JS Injection Framework (Intentionally left blank).
-            -->
+            
             <div id="product-grid" class="product-grid"></div>
         </section>
         
     </main>
 
-    <!-- 
-         TR: FOOTER - Sayfanın en altındaki telif hakkı kısmı
-         EN: GLOBAL FOOTER SEGMENT
-         -->
     <footer>
         <p>&copy; 2026 Studio & Cafe Sakarya. Tüm Hakları Saklıdır.</p>
     </footer>
-    <!-- sepeti gormek icin-->
-<div id="cart-modal" class="cart-modal">
-    <div class="cart-modal-content">
-        <div class="cart-modal-header">
-            <h3>Alışveriş Sepetiniz</h3>
-            <button id="close-cart-btn" class="close-btn">&times;</button>
-        </div>
-        
-        <div id="cart-items-container" class="cart-items-container"></div>
-        
-        <div class="cart-modal-footer">
-            <div class="cart-total">
-                <span>Toplam Tutar:</span>
-                <span id="cart-total-price">0.00 TL</span>
-            </div>
-            <button id="checkout-btn" class="btn btn-primary checkout-btn">Siparişi Tamamla</button>
+     <!--randevu olusturma kismi-->
+    <div id="booking-modal" class="booking-modal">
+        <div class="booking-modal-content">
+            <button id="close-booking-btn" class="close-btn">&times;</button>
+            
+            <h2 class="section-title">Fotoğrafçılık & Randevu</h2>
+            <p class="section-subtitle">Profesyonel çekimleriniz için yerinizi hemen ayırtın.</p>
+
+            <form id="appointment-form" class="appointment-form">
+                <div class="form-group">
+                    <label for="client-name">Adınız Soyadınız</label>
+                    <input type="text" id="client-name" required placeholder="Örn: Ahmet Yılmaz">
+                </div>
+
+                <div class="form-group">
+                    <label for="client-phone">Telefon Numaranız</label>
+                    <input type="tel" id="client-phone" required placeholder="05XX XXX XX XX">
+                </div>
+
+                <div class="form-group">
+                    <label for="service-type">Çekim Türü</label>
+                    <select id="service-type" required>
+                        <option value="" disabled selected>Hizmet Seçiniz...</option>
+                        <option value="biyometrik">Biyometrik & Vesikalık Çekim</option>
+                        <option value="portre">Kişisel Portre Çekimi</option>
+                        <option value="urun">Kurumsal Ürün Çekimi</option>
+                        <option value="konsept">Kafe Konsept Çekimi</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="booking-date">Randevu Tarihi</label>
+                        <input type="date" id="booking-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="booking-time">Randevu Saati</label>
+                        <select id="booking-time" required>
+                            <option value="" disabled selected>Saat Seçiniz...</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:30">14:30</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:30">17:30</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary submit-booking-btn">Randevu Talebi Gönder</button>
+            </form>
         </div>
     </div>
-</div>
-    <!-- 
-      TR: SCRIPT BAĞLANTILARI: Önce veri tabanı (data.js) yüklenmeli, sonra ana motor (app.js).
-      EN: DEPENDENCY INJECTION: data.js loads first as database, then app.js logic.
-    -->
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Alışveriş Sepetiniz</h3>
+                <button id="close-cart-btn" class="close-btn">&times;</button>
+            </div>
+            
+            <div id="cart-items-container" class="cart-items-container"></div>
+            
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span>Toplam Tutar:</span>
+                    <span id="cart-total-price">0.00 TL</span>
+                </div>
+                <button id="checkout-btn" class="btn btn-primary checkout-btn">Siparişi Tamamla</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 </body>

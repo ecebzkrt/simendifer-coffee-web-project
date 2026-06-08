@@ -260,3 +260,28 @@ document.getElementById('checkout-btn').addEventListener('click', () => {
     updateCartBadge();
     cartModal.style.display = 'none';
 });
+// RANDEVU MODAL
+
+const bookingModal = document.getElementById('booking-modal');
+const closeBookingBtn = document.getElementById('close-booking-btn');
+
+const heroBookingBtn = document.getElementById('hero-booking-btn');
+const navBookingBtn = document.getElementById('nav-booking-btn');
+
+function openBookingModal(e) {
+    e.preventDefault();
+    bookingModal.style.display = 'flex';
+}
+
+heroBookingBtn.addEventListener('click', openBookingModal);
+navBookingBtn.addEventListener('click', openBookingModal);
+
+closeBookingBtn.addEventListener('click', () => {
+    bookingModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === bookingModal) {
+        bookingModal.style.display = 'none';
+    }
+});
